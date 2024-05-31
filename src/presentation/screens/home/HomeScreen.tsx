@@ -1,14 +1,22 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
+import { PrimaryBtn } from '../../components/shared/PrimaryBtn';
+import { useNavigation } from '@react-navigation/native';
+import { globalStyles } from '../../theme/theme';
+
 
 export const HomeScreen = () => {
+    const navigation = useNavigation()
     return (
-        <View>
-            <Text>
-                HomScreen
-            </Text>
+        <View style={globalStyles.container}>
+            <PrimaryBtn
+                onPress={() => navigation.navigate('Products' as never)}
+                label='Productos' />
+            <PrimaryBtn
+                onPress={() => navigation.navigate('Settings' as never)}
+                label='Settings' />
         </View>
     );
 }
 
-const styles = StyleSheet.create({})
+
 
