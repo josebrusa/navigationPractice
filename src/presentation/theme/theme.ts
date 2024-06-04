@@ -34,4 +34,10 @@ export const globalStyles = StyleSheet.create({
         color: globalColors.background,
         fontSize: 18,
     },
+
+    textHeader: {
+        fontSize: 20,
+        fontWeight: 300,
+        marginBottom: 10,
+    }
 })

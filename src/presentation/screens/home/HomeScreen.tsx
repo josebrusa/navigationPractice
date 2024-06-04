@@ -13,7 +13,7 @@ export const HomeScreen = () => {
                 label='Productos' />
             <PrimaryBtn
                 onPress={() => navigation.navigate('Settings' as never)}
-                label='Settings' />
+                label='Ajustes' />
         </View>
     );
 }
