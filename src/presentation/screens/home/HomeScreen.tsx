@@ -1,4 +1,4 @@
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, Text, useWindowDimensions, View } from 'react-native';
 import { PrimaryBtn } from '../../components/shared/PrimaryBtn';
 import { DrawerActions, type NavigationProp, useNavigation } from '@react-navigation/native';
 import { globalStyles } from '../../theme/theme';
@@ -9,12 +9,17 @@ import { useEffect } from 'react';
 export const HomeScreen = () => {
     const navigation = useNavigation<NavigationProp<RootStackParams>>()
 
+    const { width } = useWindowDimensions()
+
     useEffect(() => {
         navigation.setOptions({
             headerLeft: () => (
                 <Pressable onPress={() => navigation.dispatch(DrawerActions.toggleDrawer)}>
-                    <Text>Menu</Text>
+                    <Text>
+                        Menu
+                    </Text>
                 </Pressable>
+
             )
         })
     }, [])
