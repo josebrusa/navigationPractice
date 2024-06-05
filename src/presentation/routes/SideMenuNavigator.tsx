@@ -5,6 +5,7 @@ import { globalColors } from '../theme/theme';
 import { useWindowDimensions, View } from 'react-native';
 import { BottomTabsNavigator } from './BottomTabsNavigator';
 import { BottomMaterialNavigation } from './BottomMaterialNaviagtion';
+import { TopTabsNavigator } from './TopTabsNavigator';
 
 const Drawer = createDrawerNavigator();
 
