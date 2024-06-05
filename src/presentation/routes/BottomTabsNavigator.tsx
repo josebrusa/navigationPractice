@@ -5,6 +5,7 @@ import { globalColors } from '../theme/theme';
 import { Text } from 'react-native';
 import { TopTabsNavigator } from './TopTabsNavigator';
 import { StackNavigator } from './StackNavigator';
+import { IonIcon } from '../components/shared/IonIcon';
 
 const Tab = createBottomTabNavigator();
 
@@ -17,9 +18,9 @@ export const BottomTabsNavigator = () => {
 
             }}
             screenOptions={{
+                tabBarActiveTintColor: globalColors.primary,
                 tabBarLabelStyle: {
                     marginBottom: 5,
-
                 },
                 headerStyle: {
                     elevation: 0,
@@ -31,10 +32,38 @@ export const BottomTabsNavigator = () => {
                     shadowColor: 'transparent'
                 }
             }}
+
         >
-            <Tab.Screen name="Tab1" options={{ title: 'Tab1', tabBarIcon: ({ color }) => (<Text style={{ color }}>Tab1</Text>) }} component={Tab1Screen} />
-            <Tab.Screen name="Tab2" options={{ title: 'Tab2', tabBarIcon: ({ color }) => (<Text style={{ color }}>Tab2</Text>) }} component={TopTabsNavigator} />
-            <Tab.Screen name="Tab3" options={{ title: 'Tab3', tabBarIcon: ({ color }) => (<Text style={{ color }}>Tab3</Text>) }} component={StackNavigator} />
+            <Tab.Screen
+                name="Inbox"
+                options={{
+                    tabBarIcon: ({ color }) => (
+
+                        <IonIcon color={color} name='file-tray-full-outline' />
+                    )
+                }}
+                component={Tab1Screen}
+            />
+
+            <Tab.Screen
+                name="UpDate"
+                options={{
+                    tabBarIcon: ({ color }) => (
+
+                        <IonIcon color={color} name='flash-outline' />
+                    )
+                }} component={TopTabsNavigator}
+            />
+
+            <Tab.Screen
+                name="Inicio"
+                options={{
+                    tabBarIcon: ({ color }) => (
+
+                        <IonIcon color={color} name='home-outline' />
+                    )
+                }} component={StackNavigator}
+            />
         </Tab.Navigator>
     );
 }

@@ -6,6 +6,7 @@ import { useWindowDimensions, View } from 'react-native';
 import { BottomTabsNavigator } from './BottomTabsNavigator';
 import { BottomMaterialNavigation } from './BottomMaterialNaviagtion';
 import { TopTabsNavigator } from './TopTabsNavigator';
+import { IonIcon } from '../components/shared/IonIcon';
 
 const Drawer = createDrawerNavigator();
 
@@ -35,9 +36,23 @@ export const SideMenuNavigator = () => {
             }}
         >
             {/* <Drawer.Screen name="StackNavigator" component={StackNavigator} /> */}
-            <Drawer.Screen name="Tabs" component={BottomTabsNavigator} />
             {/* <Drawer.Screen name="Tabs" component={BottomMaterialNavigation} /> */}
-            <Drawer.Screen name="profile" component={ProfileScreen} />
+
+            <Drawer.Screen
+                options={{
+                    drawerIcon: ({ color }) => <IonIcon name="logo-javascript" color={color} />
+                }}
+                name="JavaScript"
+                component={BottomTabsNavigator}
+            />
+
+            <Drawer.Screen
+                options={{
+                    drawerIcon: ({ color }) => <IonIcon name="logo-react" color={color} />
+                }}
+                name="React js"
+                component={ProfileScreen}
+            />
         </Drawer.Navigator>
     );
 }

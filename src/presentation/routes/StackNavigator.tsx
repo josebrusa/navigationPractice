@@ -5,6 +5,7 @@ import { ProductScreen } from '../screens/products/ProductScreen';
 import { SettingsScreen } from '../screens/settings/SettingsScreen';
 import { useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
+import { HamburguerMenu } from '../components/shared/HamburguerMenu';
 
 
 export type RootStackParams = {
@@ -26,17 +27,20 @@ export const StackNavigator = () => {
         })
     }, [])
     return (
-        <Stack.Navigator screenOptions={{
-            headerStyle: {
-                elevation: 0,
-                shadowColor: 'transparent'
-            }
+        <>
+            <HamburguerMenu />
+            <Stack.Navigator screenOptions={{
+                headerStyle: {
+                    elevation: 0,
+                    shadowColor: 'transparent'
+                }
 
-        }}>
-            <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="Products" component={ProductsScreen} />
-            <Stack.Screen name="Product" component={ProductScreen} />
-            <Stack.Screen name="Settings" component={SettingsScreen} />
-        </Stack.Navigator>
+            }}>
+                <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen name="Products" component={ProductsScreen} />
+                <Stack.Screen name="Product" component={ProductScreen} />
+                <Stack.Screen name="Settings" component={SettingsScreen} />
+            </Stack.Navigator>
+        </>
     );
 }
